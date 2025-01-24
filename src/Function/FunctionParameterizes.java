@@ -1,7 +1,7 @@
 package Function;
 
 // This class contains basic arithmetic operations: addition, multiplication, division, and subtraction
-public class FunctionDemo {
+public class FunctionParameterizes {
 
     // Method to perform addition of two integers
     public static void addition(int a, int b) {
