@@ -1,48 +1,42 @@
-package OOPS;
+package OOPS; // Package declaration for Object-Oriented Programming concepts
 
+// Main class demonstrating inheritance
 public class Inheritance {
 
     public static void main(String[] args) {
+        // Creating an instance of Child class
+        Child child = new Child();
 
-        // Creating an object of Fish, which is a subclass of Animal
-        Fish fish = new Fish();
-
-        // Calling the swimming method of Fish class
-        fish.swimming();
-
-        // Calling the inherited breath method from Animal class
-        fish.breath();
-
-        // Calling the inherited drinkWater method from Animal class
-        fish.drinkWater();
-
-        // Printing the skin color of the fish
-        System.out.println(fish.skincolor);
+        // Calling methods from different levels of the inheritance hierarchy
+        child.helloGrandParends(); // Method from GrandParents class
+        child.helloParends();      // Method from Parents class
+        child.helloChild();        // Method from Child class
     }
 }
 
-// Parent class Animal
-class Animal {
+// Base class representing Grandparents
+class GrandParends {
 
-    // Method to simulate breathing behavior
-    void breath() {
-        System.out.println("Breathing..");
-    }
-
-    // Method to simulate drinking water behavior
-    void drinkWater() {
-        System.out.println("Drink Water..");
+    // Method to print a message from Grandparents
+    void helloGrandParends() {
+        System.out.println("Hello Grand Parends....");
     }
 }
 
-// Child class Fish inherits from Animal class
-class Fish extends Animal {
+// Intermediate class representing Parents, inheriting from GrandParents
+class Parends extends GrandParends {
 
-    // Adding a property specific to Fish class
-    String skincolor = "red";
+    // Method to print a message from Parents
+    void helloParends() {
+        System.out.println("Hello Parends");
+    }
+}
 
-    // Method specific to Fish class to simulate swimming
-    void swimming() {
-        System.out.println("Swimming at 100 km/h");
+// Child class inheriting from Parents
+class Child extends Parends {
+
+    // Method to print a message from Child
+    void helloChild() {
+        System.out.println("Hello Child");
     }
 }
