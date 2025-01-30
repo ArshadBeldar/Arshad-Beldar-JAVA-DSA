@@ -1,38 +1,36 @@
 package OOPS;  // Package declaration
 
-// Method Overloading - Demonstrating Compile-time Polymorphism
+// Function Overriding Example in Java
+
 public class Polymorphism {
 
     public static void main(String[] args) {
 
-        Calculator cal = new Calculator();  // Creating an object of Calculator class
+        Deer d = new Deer();  // Creating an object of the Deer class
 
-        // Calling sum method with two integer parameters
-        System.out.println(cal.sum(10, 20));
+        d.eat();  // Calling the eat() method, which demonstrates method overriding
 
-        // Calling sum method with three integer parameters
-        System.out.println(cal.sum(10, 20, 30));
-
-        // Calling sum method with two float parameters
-        System.out.println(cal.sum(20.50f, 20.50f));
     }
+
 }
 
-// Calculator class demonstrating method overloading
-class Calculator {
+// Parent class: Animal
+class Animal {
 
-    // Method to add two integers
-    int sum(int a, int b) {
-        return a + b;
+    // Method to be overridden in the child class
+    void eat() {
+        System.out.println("Animal eats everything...");
     }
 
-    // Overloaded method to add three integers
-    int sum(int a, int b, int c) {
-        return a + b + c;
+}
+
+// Child class: Deer (inherits from Animal)
+class Deer extends Animal {
+
+    // Overriding the eat() method of the Animal class
+    @Override
+    void eat() {
+        System.out.println("Deer eats only grass...");
     }
 
-    // Overloaded method to add two float values
-    float sum(float a, float b) {
-        return a + b;
-    }
 }
