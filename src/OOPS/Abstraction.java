@@ -6,35 +6,32 @@ public class Abstraction {
 
     public static void main(String[] args) {
 
-        // Creating an object of Car1 class
-        Car1 cr = new Car1();
+        // ✅ Creating an anonymous class object
+        // Here, we are creating an object of an abstract class `Vehicle`
+        // Internally, Java will generate a new subclass and override `carStart()`
+        Vehicle vehicle = new Vehicle() {
+            @Override
+            void carStart() {
+                System.out.println("Car is Start : ");
+            }
+        };
 
-        // Calling the abstract method (implemented in Car1)
-        cr.carStart();
+        // Calling overridden method from anonymous class
+        vehicle.carStart();  // Output: Car is Start :
 
-        // Calling the normal method from abstract class
-        cr.carStop();
+        // Calling normal method from abstract class
+        vehicle.carStop();   // Output: Car is Stopped :
     }
 }
 
-// Abstract class defining a blueprint for Vehicles
+// Abstract class defining a vehicle blueprint
 abstract class Vehicle {
 
-    // Abstract method (must be implemented in subclass)
+    // Abstract method (must be implemented by a subclass or anonymous class)
     abstract void carStart();
 
-    // Concrete method (already implemented, can be used as it is)
+    // Concrete method (already implemented, no need to override)
     void carStop() {
-        System.out.println("Car is Stop : ");
-    }
-}
-
-// Concrete class extending abstract class Vehicle
-class Car1 extends Vehicle {
-
-    // Overriding abstract method and providing implementation
-    @Override
-    void carStart() {
-        System.out.println("Car is Start : ");
+        System.out.println("Car is Stopped : ");
     }
 }
